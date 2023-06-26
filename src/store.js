@@ -4,7 +4,7 @@ export const store= reactive({
 
     //CHIAMATA API 
     baseUrl: 'https://api.themoviedb.org',
-    apiSearchMovie: '/3/search/movie',   
+    apiSearchMovie: '/3/search/multi',   
     apiKey: '?api_key=f44712b43bd75a7c48c3d470fc1da3ce',
     parameterQuery: '&query=',
     //CHIAMATA API
