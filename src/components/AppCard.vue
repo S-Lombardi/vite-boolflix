@@ -13,7 +13,7 @@ export default {
     <li> Titolo: {{ searched_film.title }} </li>
     <ul>
         <li>Titolo originale: {{ searched_film.original_title }}</li>
-        <li>Lingua: {{ searched_film.original_language }}</li>
+        <li>Lingua: <img :src="'/flag/' +  searched_film.original_language + '_16.png'" /> </li>
         <li>Voto: {{ searched_film.vote_average }}</li>
     </ul>
     
