@@ -2,6 +2,7 @@
 import {store} from '../store.js'
 
 export default {
+    emits: ["clickSearch"],
     data(){
         return {
             store,
