@@ -11,12 +11,12 @@ export default {
 </script>
 
 <template >
-  <div>
-    <AppHeader/>
+  
+  <AppHeader/>
+  
+  <AppMain/>
     
-    <AppMain/>
-    
-  </div>
+  
 </template>
 
 <style lang="">
