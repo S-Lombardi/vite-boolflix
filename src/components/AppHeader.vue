@@ -1,15 +1,17 @@
 <script>
 export default {
-  
 }
 </script>
 
 <template lang="">
-  <header>
-    header
-  </header>
+    
+    <input type="text" placeholder="cerca..">
+
+    <button>
+        Clicca per cercare
+    </button>
+
 </template>
 
 <style lang="">
-  
 </style>

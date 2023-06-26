@@ -5,9 +5,9 @@ export default {
 </script>
 
 <template lang="">
-  <div>
-     card
-  </div>
+  <ul>
+    <li> dfdfdf</li>
+  </ul>
 </template>
 
 <style lang="">
