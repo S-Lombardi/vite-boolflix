@@ -58,7 +58,5 @@ export default {
 //IMPORTA IL FILE GENERALS ALTRIMENTI NON FUNZIONA FONTAWESOM E BOOTSTRAP
 // !!!!!!
 @import './styles/generals.scss';
-
-
   
 </style>
