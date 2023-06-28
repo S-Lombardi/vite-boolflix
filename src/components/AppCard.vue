@@ -1,9 +1,6 @@
 <script>
 import {store} from '../store.js'
 
-
-
-
 export default {
     props:{
         searched_film : Object,
@@ -13,12 +10,7 @@ export default {
             store,
         }
     },
-
-    
     methods:{
-        
-        
-
         //Funzione per trasformre il numero del voto in numero intero
         Integer(voto){
             for(let i=0; i<5; i++){
@@ -29,47 +21,59 @@ export default {
                 else{
                     return 0;
                 } 
-            } 
-            
+            }  
         }  
-
-      
     } 
 }
 </script>
 
 <template lang="">
-
     <div class="col-3">
-
+        <!-- CARD -->
         <div class="card mb-4">
-            <img :src=" store.baseUrlImage + searched_film.poster_path " /> 
+            <!-- IMMAGINE DI COPERTINA -->
 
-            <div class="info">
-                <li> Titolo: {{ searched_film.title || searched_film.name }} </li>
-                <ul>
-                    <li>Titolo originale: {{ searched_film.original_title || searched_film.original_name}}</li>
-                    <li>
-                        Lingua:
-                        <img :src="'/flag/' +  searched_film.original_language + '_16.png'" /> 
-                    </li>
-            
-                    <li> 
-                        Voto:
-                        <i :class="i <=  Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i"></i>
-                    </li>
-            
-                    <li>film o serie: {{ searched_film.media_type }} </li>
-                </ul>
+            <!-- <img :src=" store.baseUrlImage + searched_film.poster_path " />  -->
 
-            </div>
-    
+            <img :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? 'https://picsum.photos/200/300' : store.baseUrlImage + searched_film.poster_path" >
+
+            <!-- INFO -->
+            <ul class="info">
+                
+                <li>
+                    Titolo: {{ searched_film.title || searched_film.name }} 
+                </li>
+                <li>
+                    Titolo originale: {{ searched_film.original_title || searched_film.original_name}}
+                </li>
+                <li>
+                    film o serie: {{ searched_film.media_type }} 
+                </li>
+                <li>
+                    Lingua:
+                    <img :src="'/flag/' +  searched_film.original_language + '_16.png'" /> 
+                </li>
+        
+                <li> 
+                    Voto:
+                    <i :class="i <= Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i"></i>
+                </li>
+                <li>
+                    {{ searched_film.overview }}
+                </li>
+        
+                
+            </ul>
         </div>
-
+        <!-- FINE CARD -->
     </div>
 </template>
 
 <style lang="scss" scoped>
+
+img{
+    aspect-ratio: 2/3;
+}
 
 .card{
     position: relative;
@@ -86,8 +90,8 @@ export default {
     display:none;
     width: 100%;
     height: 100%;
-    background-color: white;;
-
+    background-color: white;
+    overflow:auto;
 }
 
 </style>
