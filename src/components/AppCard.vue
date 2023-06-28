@@ -13,15 +13,13 @@ export default {
     methods:{
         //Funzione per trasformre il numero del voto in numero intero
         Integer(voto){
-            for(let i=0; i<5; i++){
-                
-                if(!isNaN(voto)){
-                    return Math.ceil(voto) / 2;
-                }
-                else{
-                    return 0;
-                } 
-            }  
+
+            if(!isNaN(voto)){
+                return Math.ceil(voto) / 2;
+            }
+            else{
+                return 0;
+            }   
         }  
     } 
 }
@@ -37,12 +35,11 @@ export default {
             <!-- <img src="../assets/img/bg-film.jpg" alt="">  -->
 
             <img class="poster" :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
-
+            
             <!-- INFO -->
-            <ul class="info">
-                
-                <li>
-                    Title: {{ searched_film.title || searched_film.name }} 
+            <ul class="info p-3" >
+                <li class="fw-bold f-2 text-center">
+                    {{ searched_film.title || searched_film.name }} 
                 </li>
                 <li>
                     Original title: {{ searched_film.original_title || searched_film.original_name}}
@@ -59,7 +56,7 @@ export default {
                     Rating:
                     <i :class=" i <= Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i"></i>
                 </li>
-                <li>
+                <li text-justify>
                     Overview: {{ searched_film.overview }}
                 </li>
                 

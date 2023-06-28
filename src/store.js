@@ -8,15 +8,19 @@ export const store= reactive({
     
     apiSearchMovie: '/3/search/movie',   
     apiSearchMovieSerie: '/3/search/multi',
+
+    apiGetTrending: '/3/trending/all/week',
     
     parameterQuery: '&query=', //ricerca per nome
     
     // l’URL base delle immagini
     baseUrlImage: 'https://image.tmdb.org/t/p/w185/',
+    //CHIAMATA API
 
     //variabile per salvare il valore che scrive l'utente nella search-bar
     search_title_words: "",
 
     //array per inserire la lista dei film cercati nella chiamata api
     filmList : [],
+    
 })

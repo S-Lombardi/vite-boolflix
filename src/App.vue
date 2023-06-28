@@ -16,6 +16,17 @@ export default {
       store,
     }
   },
+
+  mounted() {
+    
+    //Al caricamento della pagina la chiamata restituisce i film e serie tv in tendenza della settimana 
+    let firstApi = store.baseUrl + store.apiGetTrending + store.apiKey 
+      axios.get(firstApi).then((result) =>{
+      store.filmList = result.data.results;
+          
+    });
+    
+  },
   methods:{
 
     //FUNZIONE CHE RESTITUISCE IL FILM CERCATO
