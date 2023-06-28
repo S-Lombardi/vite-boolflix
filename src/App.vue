@@ -61,8 +61,8 @@ export default {
 
 <style lang="scss">
 // !!!!!!
-//IMPORTA IL FILE GENERALS ALTRIMENTI NON FUNZIONA FONTAWESOM E BOOTSTRAP
+//IMPORTA con @USE IL FILE GENERALS ALTRIMENTI NON FUNZIONA FONTAWESOM E BOOTSTRAP
 // !!!!!!
-@import './styles/generals.scss';
+@use './styles/generals.scss' as*;
   
 </style>

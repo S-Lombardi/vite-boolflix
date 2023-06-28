@@ -29,37 +29,39 @@ export default {
     <div class="col-auto">
         <!-- CARD -->
         <div class="card mb-4">
-            <!-- IMMAGINE DI COPERTINA -->
-
-
-            <!-- <img src="../assets/img/bg-film.jpg" alt="">  -->
-
+           
             <img class="poster" :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
             
             <!-- INFO -->
-            <ul class="info p-3" >
-                <li class="fw-bold f-2 text-center">
-                    {{ searched_film.title || searched_film.name }} 
+            <ul class="info p-4" > 
+                <li id='movie-title' >
+                    <h4>{{ searched_film.title || searched_film.name }}</h4> 
                 </li>
                 <li>
-                    Original title: {{ searched_film.original_title || searched_film.original_name}}
+                    <h6> Original title:</h6>   
+                    {{ searched_film.original_title || searched_film.original_name}}
+                </li>
+                <li >
+                    <h6> Movie / Tv: </h6>
+                    <span class="text-capitalize ms-1 ">
+                     {{searched_film.media_type }}
+                    </span> 
                 </li>
                 <li>
-                    Movie/ Tv: {{ searched_film.media_type }} 
-                </li>
-                <li>
-                    Language:
-                    <img :src=" '/flag/' +  searched_film.original_language + '_16.png'" /> 
+                    <h6> Language: </h6>
+                    <img :src=" '/flag/' +  searched_film.original_language + '_16.png'" class="ms-2" /> 
                 </li>
         
                 <li> 
-                    Rating:
-                    <i :class=" i <= Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i"></i>
+                    <h6> Rating: </h6>
+                    <i :class=" i <= Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i" class="ms-1 text-warning"></i>
                 </li>
-                <li text-justify>
-                    Overview: {{ searched_film.overview }}
+                <li id="movie-overview">
+
+                    <div class="text-center mt-4 fw-bolder"> Movie's Overview </div> 
+                    {{ searched_film.overview }}
                 </li>
-                
+
             </ul>
         </div>
         <!-- FINE CARD -->
@@ -67,30 +69,49 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-.poster{
-    aspect-ratio: 2/3;
-    width: 342px
-}
-
 .card{
+    .poster{
+        aspect-ratio: 2/3;
+        width: 342px
+    }
     position: relative;
+    .info{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display:none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.835);
+        overflow:auto;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    
+        #movie-title{
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom:20px
+        }
+    
+        #movie-overview{
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        h6{
+            display: inline-block;
+            color: rgb(176, 176, 176)
+        }
+    }
 }
 
 .card:hover .info{
     display:block
 }
 
-.info{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display:none;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.835);
-    overflow:auto;
-    color: white;
-}
+
+
+
+
 
 </style>
