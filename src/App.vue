@@ -45,7 +45,6 @@ export default {
   <AppHeader @clickSearch="searchTitleWords()"/>
   
   <AppMain/>
-    
   
 </template>
 

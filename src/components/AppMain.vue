@@ -19,7 +19,7 @@ export default {
 <template lang="">
   <main>
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-center">
 
         <AppCard v-for="(film, index) in store.filmList" :key="index" :searched_film="film"/> 
 

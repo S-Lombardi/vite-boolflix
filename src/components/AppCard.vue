@@ -28,40 +28,40 @@ export default {
 </script>
 
 <template lang="">
-    <div class="col-3">
+    <div class="col-auto">
         <!-- CARD -->
         <div class="card mb-4">
             <!-- IMMAGINE DI COPERTINA -->
 
-            <!-- <img :src=" store.baseUrlImage + searched_film.poster_path " />  -->
 
-            <img :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? 'https://picsum.photos/200/300' : store.baseUrlImage + searched_film.poster_path" >
+            <!-- <img src="../assets/img/bg-film.jpg" alt="">  -->
+
+            <img class="poster" :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
 
             <!-- INFO -->
             <ul class="info">
                 
                 <li>
-                    Titolo: {{ searched_film.title || searched_film.name }} 
+                    Title: {{ searched_film.title || searched_film.name }} 
                 </li>
                 <li>
-                    Titolo originale: {{ searched_film.original_title || searched_film.original_name}}
+                    Original title: {{ searched_film.original_title || searched_film.original_name}}
                 </li>
                 <li>
-                    film o serie: {{ searched_film.media_type }} 
+                    Movie/ Tv: {{ searched_film.media_type }} 
                 </li>
                 <li>
-                    Lingua:
-                    <img :src="'/flag/' +  searched_film.original_language + '_16.png'" /> 
+                    Language:
+                    <img :src=" '/flag/' +  searched_film.original_language + '_16.png'" /> 
                 </li>
         
                 <li> 
-                    Voto:
-                    <i :class="i <= Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i"></i>
+                    Rating:
+                    <i :class=" i <= Integer(searched_film.vote_average)  ? 'fa-solid fa-star' :  'fa-regular fa-star'" v-for="i in 5" :key="i"></i>
                 </li>
                 <li>
-                    {{ searched_film.overview }}
+                    Overview: {{ searched_film.overview }}
                 </li>
-        
                 
             </ul>
         </div>
@@ -71,8 +71,9 @@ export default {
 
 <style lang="scss" scoped>
 
-img{
+.poster{
     aspect-ratio: 2/3;
+    width: 342px
 }
 
 .card{
@@ -90,8 +91,9 @@ img{
     display:none;
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.835);
     overflow:auto;
+    color: white;
 }
 
 </style>

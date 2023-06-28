@@ -26,7 +26,7 @@ export default {
                 <!-- SEARCH BAR e PULSANTE -->
                 <div class="col d-flex align-items-center justify-content-end">
 
-                    <input class="form-control" v-model="store.search_title_words"  type="text" placeholder="Cerca un film...">
+                    <input class="form-control size-input" v-model="store.search_title_words"  type="text" placeholder="Cerca un film...">
                 
                     <button  @click="$emit('clickSearch')" type="button" class="ms-3">
                         <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
@@ -42,6 +42,10 @@ export default {
 .logo{
     font-family: 'Space Grotesk', sans-serif;;
     color: rgb(190, 18, 44);
+}
+
+.size-input{
+    width: 65%,
 }
 
 button{
