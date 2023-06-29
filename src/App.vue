@@ -37,7 +37,8 @@ export default {
         //aggiungo alla fine della chiamata il valore inserito dall'utente
         apiUrl +=  store.search_title_words;
 
-        //Effettuo la chiamata e inserisco in filmList il risultato (la lista dei film cercati)
+        //Effettuo la chiamata e inserisco in filmList la lista dei film cercati
+        //che si trova nell'array "results"
         axios.get(apiUrl).then((result) =>{
           store.filmList = result.data.results;
           

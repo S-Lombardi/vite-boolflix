@@ -13,7 +13,7 @@ export default {
     methods:{
         //Funzione per trasformre il numero del voto in numero intero
         Integer(voto){
-
+            //se voto è un numero restituisci il numero intero diviso due
             if(!isNaN(voto)){
                 return Math.ceil(voto) / 2;
             }
@@ -30,7 +30,7 @@ export default {
         <!-- CARD -->
         <div class="card mb-4">
            
-            <img class="poster" :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
+            <img class="poster" :src="searched_film.poster_path === null   ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
             
             <!-- INFO -->
             <ul class="info p-4" > 
@@ -71,6 +71,7 @@ export default {
 <style lang="scss" scoped>
 .card{
     .poster{
+        //definire rapporto tra h e w
         aspect-ratio: 2/3;
         width: 342px
     }
