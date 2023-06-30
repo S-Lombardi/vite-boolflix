@@ -29,8 +29,6 @@ export default {
     <div class="col-auto">
         <!-- CARD -->
         <div class="card mb-4">
-
-            <img src="../assets/img/bg-film2.jpg" alt="">
            
             <img class="poster" :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
             
@@ -88,7 +86,7 @@ export default {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.835);
         overflow:auto;
-        color:$color;
+        color:white;
         font-family: 'Roboto', sans-serif;
     
         #movie-title{
