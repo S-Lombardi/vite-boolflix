@@ -65,5 +65,6 @@ export default {
 //IMPORTA con @USE IL FILE GENERALS ALTRIMENTI NON FUNZIONA FONTAWESOM E BOOTSTRAP
 // !!!!!!
 @use './styles/generals.scss' as*;
+@use './styles/partials/variables' as*;
   
 </style>

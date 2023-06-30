@@ -29,8 +29,10 @@ export default {
     <div class="col-auto">
         <!-- CARD -->
         <div class="card mb-4">
+
+            <img src="../assets/img/bg-film2.jpg" alt="">
            
-            <img class="poster" :src="searched_film.poster_path === null   ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
+            <img class="poster" :src="searched_film.poster_path === null || searched_film.poster_path === undefined  ? '/flag/bg-film.jpg' : store.baseUrlImage + searched_film.poster_path" >
             
             <!-- INFO -->
             <ul class="info p-4" > 
@@ -69,6 +71,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/partials/variables';
 .card{
     .poster{
         //definire rapporto tra h e w
@@ -85,7 +88,7 @@ export default {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.835);
         overflow:auto;
-        color: white;
+        color:$color;
         font-family: 'Roboto', sans-serif;
     
         #movie-title{
